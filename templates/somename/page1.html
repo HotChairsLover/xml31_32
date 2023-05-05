@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+  <h2>Список языков программирования</h2>
+  <ul>
+    {% for language in languages %}
+      <li>
+        <h3>{{ language.title }}</h3>
+        <img src="{{ language.image }}" alt="{{ language.title }} logo">
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+</body>
+</html>
