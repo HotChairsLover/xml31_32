@@ -5,6 +5,7 @@ from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_xml.renderers import XMLRenderer
+from rest_framework_xml import renderers
 from django.core import serializers
 from somename import models, serializers
 import requests
@@ -16,10 +17,11 @@ class TodoItemList(generics.ListAPIView):
     renderer_classes = [XMLRenderer]
 
 
+
 class TodoItemListHTML(View):
 
     def get(self, request):
-        url = 'http://localhost:8000/todo'
+        url = 'http://localhost:8000/todo/'
         response = requests.get(url)
 
         root = fromstring(response.content)
